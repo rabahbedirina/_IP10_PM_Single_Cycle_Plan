@@ -22,7 +22,7 @@ Manually entering dozens or hundreds of plans in IP10 can be tedious and time-co
 
 ## What's New in Version 2.0.0?
 
-* **Strict Header & Date Validation:** Automatically checks that CSV headers match `plan;datedebut` and ensures start dates strictly follow the `DD.MM.YYYY` format using Regular Expressions and `DateSerial` verification.
+* **Strict Header & Date Validation:** Automatically checks that CSV headers match `MaintenancePlan;StartDate` and ensures start dates strictly follow the `DD.MM.YYYY` format using Regular Expressions and `DateSerial` verification.
 
 * **Audit Trail & Logging:** Generates a detailed tab-delimited log file (`DATA_processing.log`) capturing row-by-row execution status (`SENT`, `DRY RUN`, or `ERROR`), timestamps, and error details.
 
@@ -40,7 +40,7 @@ Manually entering dozens or hundreds of plans in IP10 can be tedious and time-co
 
 ## File Structure
 
-* **`_IP10_PM_Single_Cycle_Plan_2.vbs`**: The core automation script with built-in error handling, logging, and validation.
+* **`_IP10_PM_Single_Cycle_Plan.vbs`**: The core automation script with built-in error handling, logging, and validation.
 
 * **`DATA_IP10_Single_Cycle_Plan.csv`**: The input file containing maintenance plans and start dates.
 
@@ -50,14 +50,14 @@ Manually entering dozens or hundreds of plans in IP10 can be tedious and time-co
 
 The CSV file uses a **semicolon (`;`)** delimiter.
 
-* **Required Header:** `plan;datedebut`
+* **Required Header:** `MaintenancePlan;StartDate`
 
 * **Date Format:** Must be exactly `DD.MM.YYYY` (e.g., `01.01.2026`).
 
 ### Example CSV Content:
 
 ```
-plan;datedebut
+MaintenancePlan;StartDate
 12345678;01.01.2026
 87654321;15.01.2026
 
@@ -67,11 +67,11 @@ plan;datedebut
 
 ### Method 1: Live Run (GUI Mode)
 
-1. **Prepare Your Data:** Open `DATA_IP10_Single_Cycle_Plan.csv` in a text editor or spreadsheet program and add your target plans and dates using the `plan;datedebut` format.
+1. **Prepare Your Data:** Open `DATA_IP10_Single_Cycle_Plan.csv` in a text editor or spreadsheet program and add your target plans and dates using the `MaintenancePlan;StartDate` format.
 
 2. **Launch SAP:** Open your SAP GUI session and leave it open. The script will maximize and activate the SAP window.
 
-3. **Execute:** Double-click `_IP10_PM_Single_Cycle_Plan_2.vbs`.
+3. **Execute:** Double-click `_IP10_PM_Single_Cycle_Plan.vbs`.
 
 4. **Confirm:** Click **OK** on the prompt and **do not touch your mouse or keyboard** while the script runs.
 
